@@ -20,7 +20,7 @@ void inference_only(int batch_size) {
   auto duration = duration_cast<microseconds>(stop - start);
 
   std::cout << "Time taken: "
-         << duration.count() / 1000000 << " seconds" << std::endl;
+         << duration.count() / 1000 << " milliseconds" << std::endl;
   
   float acc = compute_accuracy(dnn.output(), dataset.test_labels);
   std::cout<<std::endl;
