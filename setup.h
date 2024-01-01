@@ -12,6 +12,8 @@
 #include <algorithm>
 #include <iostream>
 #include <cstdlib>
+#include <chrono>
+using namespace std::chrono;
 
 #include "src/layer.h"
 #include "src/layer/conv.h"
