@@ -11,7 +11,17 @@ void inference_only(int batch_size) {
   Network dnn = createNetwork_GPU();
   std::cout<<"Done"<<std::endl;
 
+  std::cout<<"Start Forward"<<std::endl;
+  auto start = high_resolution_clock::now();
+
   dnn.forward(dataset.test_data);
+
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+
+  std::cout << "Time taken: "
+         << duration.count() / 1000000 << " seconds" << std::endl;
+  
   float acc = compute_accuracy(dnn.output(), dataset.test_labels);
   std::cout<<std::endl;
   std::cout<<"Test Accuracy: "<<acc<< std::endl;
